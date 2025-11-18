@@ -1,34 +1,26 @@
 // ======================================================
-// 🧩 To-Do List App (CRUD + LocalStorage)
+// To-Do List App (CRUD + LocalStorage)
 // Create | Read | Update | Delete
 // Using Pure JavaScript (no frameworks)
 // ======================================================
 
-// ======================================
-// 🟢 [1] SELECT ELEMENTS
-// ======================================
+// [1] SELECT ELEMENTS
 let input = document.getElementById('task-input');
 let addButton = document.getElementById('add-task-button');
 let list = document.getElementById('task-list');
 
-// ======================================
-// 🟢 [2] INITIAL DATA
+// [2] INITIAL DATA
 // Load tasks from localStorage (if any)
-// ======================================
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// ======================================
-// 🟢 [3] SAVE FUNCTION
+// [3] SAVE FUNCTION
 // Save the current task list to localStorage
-// ======================================
 function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// ======================================
-// 🟢 [4] CREATE FUNCTION
+// [4] CREATE FUNCTION
 // Add a new task
-// ======================================
 addButton.addEventListener('click', function () {
   let taskText = input.value.trim();
   if (taskText !== '') {
@@ -45,10 +37,8 @@ addButton.addEventListener('click', function () {
   }
 });
 
-// ======================================
-// 🟢 [5] READ FUNCTION
+// [5] READ FUNCTION
 // Render tasks dynamically
-// ======================================
 function renderTasks() {
   list.innerHTML = '';
 
@@ -65,14 +55,14 @@ function renderTasks() {
       </div>
     `;
 
-    // 🟩 Done button
+    // Done button
     li.querySelector('.done').addEventListener('click', () => {
       task.completed = !task.completed;
       saveTasks();
       renderTasks();
     });
 
-    // 🟦 Edit button
+    // Edit button
     li.querySelector('.edit').addEventListener('click', () => {
       let newText = prompt('Edit task:', task.text);
       if (newText !== null && newText.trim() !== '') {
@@ -82,7 +72,7 @@ function renderTasks() {
       }
     });
 
-    // 🟥 Delete button
+    // Delete button
     li.querySelector('.delete').addEventListener('click', () => {
       tasks = tasks.filter((t) => t.id !== task.id);
       saveTasks();
@@ -93,17 +83,13 @@ function renderTasks() {
   });
 }
 
-// ======================================
-// 🟢 [6] ENTER KEY EVENT
+// [6] ENTER KEY EVENT
 // Add task when pressing Enter
-// ======================================
 input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     addButton.click();
   }
 });
 
-// ======================================
-// 🟢 [7] INITIAL RENDER
-// ======================================
+// [7] INITIAL RENDER
 renderTasks();
