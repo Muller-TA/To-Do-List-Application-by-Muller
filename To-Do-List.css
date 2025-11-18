@@ -1,4 +1,4 @@
-/* Basics */
+/* Root variables */
 :root {
     --dark-navy: #0b132b;
     --deep-blue: #1c2541;
@@ -38,8 +38,8 @@ body {
     margin-bottom: 20px;
 }
 
-/* Input and Button */
-/* Styling the input and button */
+/* Input and button */
+/* Input and button styling */
 .input-section {
     display: flex;
     justify-content: center;
@@ -104,14 +104,15 @@ body {
         width: 100%;
     }
 }
-/* 🔹 قائمة المهام */
+
+/* Task list */
 #task-list {
     list-style: none;
     padding: 0;
     margin-top: 25px;
 }
 
-/* 🔹 كل عنصر مهمة */
+/* Each task item */
 #task-list li {
     background-color: var(--surface-dark);
     margin: 10px 0;
@@ -124,19 +125,19 @@ body {
     transition: all 0.3s ease;
 }
 
-/* 🔹 التأثير عند المرور */
+/* Hover effect */
 #task-list li:hover {
     transform: scale(1.02);
     box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
 }
 
-/* 🔹 أزرار التحكم داخل كل مهمة */
+/* Control buttons inside each task */
 .task-buttons {
     display: flex;
     gap: 8px;
 }
 
-/* 🔹 شكل الأزرار الثلاثة */
+/* Style of the three buttons */
 .task-buttons button {
     border: none;
     padding: 6px 10px;
@@ -147,7 +148,7 @@ body {
     color: var(--soft-white);
 }
 
-/* 🔸 Done */
+/* Done */
 .task-buttons .done {
     background-color: #007f5f;
 }
@@ -160,7 +161,7 @@ body {
     opacity: 0.5;
     transition: all 0.3s ease;
 }
-/* 🔸 Edit */
+/* Edit */
 .task-buttons .edit {
     background-color: #00509d;
 }
@@ -168,7 +169,7 @@ body {
     background-color: #0077b6;
 }
 
-/* 🔸 Delete */
+/* Delete */
 .task-buttons .delete {
     background-color: var(--dark-violet);
 }
@@ -176,7 +177,7 @@ body {
     background-color: var(--electric-purple);
 }
 
-/* 🔹 العنصر المنجز */
+/* Completed item */
 li.completed {
     opacity: 0.7;
     text-decoration: line-through;
